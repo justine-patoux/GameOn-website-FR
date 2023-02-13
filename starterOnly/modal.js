@@ -21,9 +21,21 @@ function launchModal() {
   modalbg.style.display = "block";
 }
 
-// Close modal form
+// Close modal event
 closeBtn.addEventListener("click", closeModal);
 
+//Close modal form
 function closeModal() {
   modalbg.style.display = "none";
+}
+
+let submitBtn = document.getElementById("submit");
+submitBtn.addEventListener("click", validate);
+
+let firstName = document.getElementById("first");
+let lastName = document.getElementById("last");
+let email = document.getElementById("email");
+
+function validate() {
+  //...
 }
