@@ -10,7 +10,7 @@ function editNav() {
 // DOM Elements
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
-const form = document.getElementById("reserve");
+const formReserve = document.getElementById("reserve");
 const formData = document.querySelectorAll(".formData");
 const closeBtn = document.querySelector(".close");
 
@@ -35,22 +35,25 @@ closeBtn.addEventListener("click", closeModal);
 //Close modal form and reset datas
 function closeModal() {
   modalbg.style.display = "none";
-  form.reset();
+  formReserve.reset();
 }
+
+document.querySelector(".btn-send").addEventListener("click", submitForm);
 
 function submitForm(){
-  form.submit()
+  //formReserve.submit();
+  HTMLFormElement.prototype.submit.call(formReserve);
 }
 
-// function greetings() {
-//   document.querySelector("#validation-message").style.display = "block";
-//   form.style.display = "none";
-// }
+function validateMessage() {
+  document.getElementById("validation-message").style.display = "block";
+  formReserve.style.display = "none";
+}
 
 // Submit form
 document.querySelector(".btn-submit").addEventListener("click", validateForm);
 
-// Validate form
+// Check inputs
 function validateForm(event) {
   event.preventDefault();
   event.stopPropagation();
@@ -65,11 +68,12 @@ function validateForm(event) {
   if (
     conditions.filter((cond) => !cond).length
     ) {
-      return;
+      console.log("form invalid")
+      return false;
     }
-    //greetings();
+    validateMessage();
   }
-  
+ 
   // Validate first name
   function validateFirstName() {
     const regexFirstName = /^[A-Z a-z]{2,25}$/;
@@ -118,25 +122,25 @@ function validateForm(event) {
   function getAge() {
     const today = new Date();
     const selectedDate = new Date(birthDate.value);
+    console.log(selectedDate);
     const parent = birthdate.parentNode;
-
+    
     today.setFullYear(today.getFullYear() - 18);
-    let isValid = false;
-
-    if (selectedDate > today) {
-      isValid = false;
+    
+    if (selectedDate > today) {  
       parent.setAttribute("data-error", "Vous devez avoir au moins 18 ans.");
       parent.setAttribute("data-error-visible", "true");
-
+      return false;
+      
     } else if (birthDate.value == null || birthDate.value == "") {
-      isValid = false;
       parent.setAttribute("data-error", "Vous devez renseigner une date de naissance.");
       parent.setAttribute("data-error-visible", "true");
-
+      return false;
+      
     } else {
       parent.setAttribute("data-error-visible", "false");
-      isValid = true;
-    } 
+      return true;
+    }   
   }
   
   // Validate number of tournaments

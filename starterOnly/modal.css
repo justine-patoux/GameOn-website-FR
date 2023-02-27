@@ -184,9 +184,9 @@ main {
   margin: 15px auto;
 }
 
-/* #validation-message {
+#validation-message {
   display: none;
-} */
+}
 
 label {
   font-family: var(--font-default);
