@@ -38,6 +38,15 @@ function closeModal() {
   form.reset();
 }
 
+function submitForm(){
+  form.submit()
+}
+
+// function greetings() {
+//   document.querySelector("#validation-message").style.display = "block";
+//   form.style.display = "none";
+// }
+
 // Submit form
 document.querySelector(".btn-submit").addEventListener("click", validateForm);
 
@@ -58,6 +67,7 @@ function validateForm(event) {
     ) {
       return;
     }
+    //greetings();
   }
   
   // Validate first name

@@ -184,6 +184,10 @@ main {
   margin: 15px auto;
 }
 
+/* #validation-message {
+  display: none;
+} */
+
 label {
   font-family: var(--font-default);
   font-size: 17px;
@@ -453,6 +457,7 @@ input {
   height: 100%;
   display: block;
   padding: 0;
+  object-fit: cover;
 }
 .copyrights {
   color: #fe142f;
@@ -505,6 +510,12 @@ footer {
   .copyrights {
     margin-top: 50px;
     text-align: center;
+  }
+}
+
+@media (max-width: 1023px) {
+  .hero-headline {
+    font-size: 4.5rem;
   }
 }
 
