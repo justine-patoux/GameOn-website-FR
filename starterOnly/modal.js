@@ -63,7 +63,8 @@ function validateForm(event) {
     validateEmail(),
     validateNumber(),
     getAge(),
-    validateCity()
+    validateCity(),
+    validateConditions()
   ]
   if (
     conditions.filter((cond) => !cond).length
@@ -122,8 +123,7 @@ function validateForm(event) {
   function getAge() {
     const today = new Date();
     const selectedDate = new Date(birthDate.value);
-    console.log(selectedDate);
-    const parent = birthdate.parentNode;
+    const parent = birthDate.parentNode;
     
     today.setFullYear(today.getFullYear() - 18);
     
@@ -148,7 +148,7 @@ function validateForm(event) {
     const quantityTournament = document.querySelector("input[name='quantity']");
     const parent = document
     .querySelector(`input[name='quantity']`)
-    .closest(`.formData`);
+    .closest('.formData');
     if (quantityTournament.value == "" || null) {
       quantity.focus();
       parent.setAttribute("data-error", "Vous devez entrer un nombre.");
@@ -169,6 +169,20 @@ function validateForm(event) {
       return true;
     }
     parent.setAttribute("data-error", "Vous devez choisir une option.");
+    parent.setAttribute("data-error-visible", "true");
+    return false;
+  }
+
+  // Validate terms and conditions (input type checkbox)
+  function validateConditions() {
+    const checkedCheckbox = document.querySelector("input[name='checkbox1']:checked");
+    const parent = document.querySelector("input[name='checkbox1']").closest(".formData");
+
+    if (checkedCheckbox != null) {
+      parent.setAttribute("data-error-visible", "false");
+      return true;
+    }
+    parent.setAttribute("data-error", "Vous devez vérifier que vous acceptez les termes et conditions.");
     parent.setAttribute("data-error-visible", "true");
     return false;
   }

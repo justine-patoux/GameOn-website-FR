@@ -35,10 +35,10 @@ img {
   margin: 3.5%;
 }
 .header-logo {
-    float: left;
+  float: left;
 }
 .main-navbar {
-    float: right;
+  float: right;
 }
 .topnav a {
   float: left;
@@ -68,15 +68,13 @@ img {
   display: none;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1108px) {
   .topnav a {display: none;}
   .topnav a.icon {
     float: right;
     display: block;
   }
-}
-
-@media screen and (max-width: 768px) {
+  
   .topnav.responsive {position: relative;}
   .topnav.responsive .icon {
     position: absolute;
@@ -90,7 +88,7 @@ img {
   }
 }
 
- @media screen and (max-width: 540px) {
+@media screen and (max-width: 540px) {
   .topnav a {display: none;}
   .topnav a.icon {
     float: right;
@@ -169,6 +167,7 @@ main {
   margin: 5% auto;
   width: 100%;
   max-width: 500px;
+  min-height: 620px;
   animation-name: modalopen;
   animation-duration: var(--modal-duration);
   background: #232323;
@@ -474,6 +473,7 @@ footer {
   padding-right: 2vw;
   margin: 0 20px;
 }
+
 @media screen and (max-width: 800px) {
   .hero-section {
     display: block;
@@ -527,4 +527,26 @@ footer {
   to {
     opacity: 1;
   }
+}
+
+#validation-message {
+  text-align: center;
+  position: relative;
+}
+
+.validation-text {
+  font-size: 2.2rem;
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-send {
+  outline: none;
+  font-size: 1.3rem;
+  padding: 15px 23px;
+  border: none;
+  border-radius: 8px;
+  width: 40%;
 }
