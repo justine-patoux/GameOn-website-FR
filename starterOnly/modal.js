@@ -62,14 +62,13 @@ function validateForm(event) {
     validateLastName(),
     validateEmail(),
     validateNumber(),
-    getAge(),
+    validateAge(),
     validateCity(),
     validateConditions()
   ]
   if (
     conditions.filter((cond) => !cond).length
     ) {
-      console.log("form invalid")
       return false;
     }
     validateMessage();
@@ -120,7 +119,7 @@ function validateForm(event) {
   }
   
   // Validate date of birth
-  function getAge() {
+  function validateAge() {
     const today = new Date();
     const selectedDate = new Date(birthDate.value);
     const parent = birthDate.parentNode;
