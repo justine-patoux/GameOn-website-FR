@@ -78,7 +78,7 @@ function validateForm(event) {
  
   // Validate first name
   function validateFirstName() {
-    const regexFirstName = /^[A-zÀ-ú]{2,25}$/;
+    const regexFirstName = /^[A-zÀ-ÿ]{2,25}$/;
     const parent = firstName.parentNode;
     
     if (firstName.value == "" || !regexFirstName.test(firstName.value)) {
@@ -93,7 +93,7 @@ function validateForm(event) {
   
   // Validate last name
   function validateLastName() {
-    const regexLastName = /^[A-zÀ-ú]{2,25}$/;
+    const regexLastName = /^[A-zÀ-ÿ]{2,25}$/;
     const parent = lastName.parentNode;
     
     if (lastName.value == "" || !regexLastName.test(lastName.value)) {
