@@ -40,17 +40,19 @@ function closeModal() {
 
 document.querySelector(".btn-send").addEventListener("click", submitForm);
 
+// Submit form
 function submitForm(){
   //formReserve.submit();
   HTMLFormElement.prototype.submit.call(formReserve);
 }
 
+// Validation message when form is 
 function validateMessage() {
   document.getElementById("validation-message").style.display = "block";
   formReserve.style.display = "none";
 }
 
-// Submit form
+// Validate form
 document.querySelector(".btn-submit").addEventListener("click", validateForm);
 
 // Check inputs
@@ -76,7 +78,7 @@ function validateForm(event) {
  
   // Validate first name
   function validateFirstName() {
-    const regexFirstName = /^[A-Z a-z]{2,25}$/;
+    const regexFirstName = /^[A-zÀ-ú]{2,25}$/;
     const parent = firstName.parentNode;
     
     if (firstName.value == "" || !regexFirstName.test(firstName.value)) {
@@ -91,7 +93,7 @@ function validateForm(event) {
   
   // Validate last name
   function validateLastName() {
-    const regexLastName = /^[A-Z a-z]{2,25}$/;
+    const regexLastName = /^[A-zÀ-ú]{2,25}$/;
     const parent = lastName.parentNode;
     
     if (lastName.value == "" || !regexLastName.test(lastName.value)) {
@@ -145,11 +147,9 @@ function validateForm(event) {
   // Validate number of tournaments
   function validateNumber() {
     const quantityTournament = document.querySelector("input[name='quantity']");
-    const parent = document
-    .querySelector(`input[name='quantity']`)
-    .closest('.formData');
+    const parent = document.querySelector("input[name='quantity']").closest('.formData');
+
     if (quantityTournament.value == "" || null) {
-      quantity.focus();
       parent.setAttribute("data-error", "Vous devez entrer un nombre.");
       parent.setAttribute("data-error-visible", "true");
       return false;
@@ -181,7 +181,7 @@ function validateForm(event) {
       parent.setAttribute("data-error-visible", "false");
       return true;
     }
-    parent.setAttribute("data-error", "Vous devez vérifier que vous acceptez les termes et conditions.");
+    parent.setAttribute("data-error", "Vous devez accepter les termes et conditions.");
     parent.setAttribute("data-error-visible", "true");
     return false;
   }
