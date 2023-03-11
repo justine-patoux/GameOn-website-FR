@@ -542,6 +542,7 @@ footer {
   align-items: center;
 }
 
+/* Bouton fermer */
 .btn-send {
   outline: none;
   font-size: 1.3rem;

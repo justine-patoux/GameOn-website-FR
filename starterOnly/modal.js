@@ -38,15 +38,16 @@ function closeModal() {
   formReserve.reset();
 }
 
+// Submit form when "Fermer" button is clicked
 document.querySelector(".btn-send").addEventListener("click", submitForm);
 
-// Submit form
+// Submit form function
 function submitForm(){
   //formReserve.submit();
   HTMLFormElement.prototype.submit.call(formReserve);
 }
 
-// Validation message when form is 
+// Validation message when form is validated
 function validateMessage() {
   document.getElementById("validation-message").style.display = "block";
   formReserve.style.display = "none";
@@ -68,9 +69,7 @@ function validateForm(event) {
     validateCity(),
     validateConditions()
   ]
-  if (
-    conditions.filter((cond) => !cond).length
-    ) {
+  if (conditions.filter((cond) => !cond).length) {
       return false;
     }
     validateMessage();
