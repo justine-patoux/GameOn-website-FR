@@ -110,6 +110,7 @@ function validateForm(event) {
     const regexEmail =
     /^[a-zA-Z][a-zA-Z0-9\-\_\.]+@[a-zA-Z0-9]{2,}\.[a-zA-Z0-9]{2,}$/;
     const parent = document.getElementById("email").parentNode;
+    
     if (email.value == "" || !regexEmail.test(email.value)) {
       parent.setAttribute("data-error", "Veuillez saisir une adresse e-mail valide.");
       parent.setAttribute("data-error-visible", "true");
@@ -121,12 +122,15 @@ function validateForm(event) {
   
   // Validate date of birth
   function validateAge() {
+    // Date of today
     const today = new Date();
+    // Date entered in the input
     const selectedDate = new Date(birthDate.value);
     const parent = birthDate.parentNode;
-    
+    // Define today's date minus 18 years
     today.setFullYear(today.getFullYear() - 18);
     
+    // If the date entered is superior to today minus 18y
     if (selectedDate > today) {  
       parent.setAttribute("data-error", "Vous devez avoir au moins 18 ans.");
       parent.setAttribute("data-error-visible", "true");
